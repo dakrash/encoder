@@ -2,13 +2,14 @@ package ru.dkrash.serialize.encoders;
 
 import ru.dkrash.serialize.EncoderProxy;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
 import java.util.Map;
 
 public class MapEncoder extends AbstractSetEncoder {
     @Override
-    public String serialize(Object any) throws IllegalAccessException, ClassNotFoundException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+    public String serialize(Object any) throws IllegalAccessException, ClassNotFoundException, InstantiationException, NoSuchMethodException, InvocationTargetException, UnsupportedEncodingException {
         StringBuilder stringResult = new StringBuilder();
         Map<Object, Object> map;
         map = (Map<Object, Object>) any;

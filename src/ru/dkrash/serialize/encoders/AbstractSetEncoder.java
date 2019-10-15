@@ -1,5 +1,6 @@
 package ru.dkrash.serialize.encoders;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
 
@@ -27,7 +28,7 @@ public abstract class AbstractSetEncoder implements Encoder {
     }
 
     @Override
-    public abstract String serialize(Object any) throws IllegalAccessException, ClassNotFoundException, InstantiationException, NoSuchMethodException, InvocationTargetException;
+    public abstract String serialize(Object any) throws IllegalAccessException, ClassNotFoundException, InstantiationException, NoSuchMethodException, InvocationTargetException, UnsupportedEncodingException;
 
     @Override
     public abstract Object deserialize(String data) throws IllegalAccessException, InvocationTargetException, ParseException, InstantiationException, NoSuchMethodException, ClassNotFoundException;

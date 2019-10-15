@@ -4,6 +4,7 @@ import ru.dkrash.serialize.EncoderFactory;
 import ru.dkrash.serialize.EncoderProxy;
 import ru.dkrash.serialize.exeptions.UnknownType;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
@@ -26,7 +27,7 @@ public class ArrayEncoder extends AbstractSetEncoder {
     }
 
     @Override
-    public String serialize(Object any) throws IllegalAccessException, ClassNotFoundException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+    public String serialize(Object any) throws IllegalAccessException, ClassNotFoundException, InstantiationException, NoSuchMethodException, InvocationTargetException, UnsupportedEncodingException {
 
         StringBuilder stringResult = new StringBuilder();
         stringResult.append("[");

@@ -3,6 +3,7 @@ package ru.dkrash.serialize;
 import ru.dkrash.serialize.exeptions.CircularLinked;
 import ru.dkrash.serialize.encoders.Encoder;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
 
@@ -13,7 +14,7 @@ public class EncoderProxy implements Encoder {
 
     public static EncoderProxy el = new EncoderProxy();
 
-    public String serialize(Object value) throws ClassNotFoundException, InvocationTargetException, InstantiationException, NoSuchMethodException, IllegalAccessException {
+    public String serialize(Object value) throws ClassNotFoundException, InvocationTargetException, InstantiationException, NoSuchMethodException, IllegalAccessException, UnsupportedEncodingException {
         StringBuilder stringResult = new StringBuilder();
         stringResult.append("{");
         String objectClass;

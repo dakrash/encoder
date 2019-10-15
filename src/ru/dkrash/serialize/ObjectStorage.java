@@ -12,4 +12,11 @@ public class ObjectStorage {
     public static void addObject(Object object) {
         ObjectStorage.objects.add(object);
     }
+    public static HashSet<Object> getObjects() {
+        return ObjectStorage.objects;
+    }
+
+    public static void clean() {
+        ObjectStorage.objects = new HashSet<>();
+    }
 }

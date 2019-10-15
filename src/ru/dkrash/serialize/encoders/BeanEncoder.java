@@ -4,12 +4,13 @@ import ru.dkrash.serialize.EncoderProxy;
 import ru.dkrash.serialize.ObjectFactory;
 import ru.dkrash.serialize.ObjectStorage;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.*;
 import java.text.ParseException;
 
 public class BeanEncoder implements Encoder {
     @Override
-    public String serialize(Object any) throws IllegalAccessException, ClassNotFoundException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+    public String serialize(Object any) throws IllegalAccessException, ClassNotFoundException, InstantiationException, NoSuchMethodException, InvocationTargetException, UnsupportedEncodingException {
         ObjectStorage.addObject(any);
         StringBuilder stringResult = new StringBuilder("{[");
         Field[] fields = any.getClass().getDeclaredFields();

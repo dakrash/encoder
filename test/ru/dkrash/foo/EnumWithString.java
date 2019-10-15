@@ -1,4 +1,4 @@
-package ru.dkrash.example;
+package ru.dkrash.foo;
 
 public enum EnumWithString {
     SUNDAY ("Воскресенье"),

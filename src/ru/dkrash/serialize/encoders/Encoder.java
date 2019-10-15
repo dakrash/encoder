@@ -1,5 +1,6 @@
 package ru.dkrash.serialize.encoders;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
 
@@ -16,7 +17,7 @@ public interface Encoder {
         return data.substring(data.indexOf(Encoder.VALUE_SEPARATOR) + Encoder.VALUE_SEPARATOR.length(), data.lastIndexOf("}"));
     }
 
-    String serialize(Object any) throws ClassNotFoundException, InvocationTargetException, InstantiationException, NoSuchMethodException, IllegalAccessException;
+    String serialize(Object any) throws ClassNotFoundException, InvocationTargetException, InstantiationException, NoSuchMethodException, IllegalAccessException, UnsupportedEncodingException;
 
     Object deserialize(String data) throws ClassNotFoundException, InvocationTargetException, InstantiationException, NoSuchMethodException, IllegalAccessException, ParseException;
 }
