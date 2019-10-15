@@ -2,6 +2,7 @@ package ru.dkrash.serialize.encoders;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import ru.dkrash.foo.EnumSimple;
 import ru.dkrash.foo.MockObject;
 import ru.dkrash.foo.ClassWithConstr;
 import ru.dkrash.serialize.EncoderProxy;
@@ -11,6 +12,7 @@ import ru.dkrash.serialize.exeptions.UnknownType;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.time.Instant;
 import java.util.*;
@@ -30,6 +32,11 @@ class MainEncoderTest {
         this.elem = new MockObject();
         this.elem.setStr("{type : [M, value : [{type : java.lang.Integer, value : 0}]}");
         this.elem.setArrInt(new int[]{0, 1, 2, 0, 0});
+        this.elem.setCharacter('}');
+        this.elem.setEnumSimple(EnumSimple.THURSDAY);
+        this.elem.setBigDecimal(new BigDecimal(3));
+        this.elem.setBoolean(true);
+        this.elem.setFloat(1);
         Map<Integer, String> map = new HashMap<>();
         map.put(0, null);
         map.put(2, "2");
@@ -51,12 +58,12 @@ class MainEncoderTest {
         return "{type : ru.dkrash.foo.MockObject, value : {[{field str:{type : java.lang.String, value : " +
                 Base64.getEncoder().encodeToString(String.valueOf(this.elem.getStr()).getBytes()) + "}}, {field date:{type : java.util.Date, value : " + dateStr + "}}, " +
                 "{field instant:{type : java.time.Instant, value : " + instantStr + "}}, {field enumSimple:" +
-                "{type : ru.dkrash.foo.EnumSimple, value : THURSDAY}}, {field bigDecimal:{type : " +
+                "{type : ru.dkrash.foo.EnumSimple, value : "+this.elem.getEnumSimple()+"}}, {field bigDecimal:{type : " +
                 "java.math.BigDecimal, value : 3}}, {field arrInt:{type : [I, value : [{type : java.lang.Integer, " +
                 "value : 0}, {type : java.lang.Integer, value : 1}, {type : java.lang.Integer, value : 2}, " +
                 "{type : java.lang.Integer, value : 0}, {type : java.lang.Integer, value : 0}]}}, {field bool:" +
                 "{type : java.lang.Boolean, value : true}}, {field fl:{type : java.lang.Float, value : 1.0}}, " +
-                "{field character:{type : java.lang.Character, value : t}}, {field classForField:" +
+                "{field character:{type : java.lang.Character, value : "+this.elem.getCharacter()+"}}, {field classForField:" +
                 "{type : ru.dkrash.foo.ClassForField, value : {[{field name:{type : java.lang.String, " +
                 "value : ZGV2ZWxvcGVy}}]}}}, {field map:{type : java.util.HashMap, value : [{type : java.lang.Integer," +
                 " value : 0} = {type : null, value : null}, {type : java.lang.Integer, value : 2} = " +

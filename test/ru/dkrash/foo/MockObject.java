@@ -8,15 +8,15 @@ public class MockObject implements java.io.Serializable {
     public MockObject() {
     }
 
-    private String str = "}}}fdsffs]]fsdfsdf";
+    private String str;
     private Date date;
     private Instant instant;
-    private EnumSimple enumSimple = EnumSimple.THURSDAY;
-    private BigDecimal bigDecimal = new BigDecimal(3);
+    private EnumSimple enumSimple;
+    private BigDecimal bigDecimal;
     private int[] arrInt;
-    private Boolean bool = true;
-    private float fl = 1;
-    private Character character = 't';
+    private Boolean bool;
+    private float fl;
+    private Character character;
     private ClassForField classForField = new ClassForField();
     private Map<Integer, String> map = new HashMap<>();
     private ArrayList<Object> arrayList = new ArrayList<>();
